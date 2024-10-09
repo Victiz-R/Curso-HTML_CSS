@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+body{
+ font-family:cursive;
+}
+main{
+    position: absolute;
+    margin: auto;
+}
+a{
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 20px;
+    
+}
+#linkmotosp{
+    text-decoration: none;
+    color: black;
+}
+#linkmotosp:hover{
+    color: black;
+    box-shadow: 5px 4px 3px rgba(15, 15, 15, 0.842);
+    
+    border-radius: 8px;
+    padding: 6px;
+}
+.motospreferidas{
+    display: inline-block;
+    background-color: antiquewhite;
+    width: 100px;
+    height: 100px;
+    border:solid 2px black;
+}
+div > p{
+ display: none;
+}
+
+div:hover > p{
+    display: block;
+    color: white;
+    background-color: red;
+    width: 200px;
+    border:solid 1px black;
+    box-shadow: 1px 2px 2px rgb(20, 20, 20);
+}
+div:hover{
+    color: red;
+}

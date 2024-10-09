@@ -1,0 +1,73 @@
+body{
+    
+    background-image: linear-gradient(to top,white 1%, #070707f5);
+    color: white;
+    
+}
+body p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+
+    
+}
+#inscrevase {
+    width: 200px;
+    right: 100px;
+    padding: 2px 2px ;
+    margin-left: 15px;
+    animation:example 1.5s infinite ease-in-out;
+}
+@keyframes example {
+    50%{
+        transform: translatey(-15%) ;
+    }
+}
+#perfil {
+width: 100px;
+right: 100px;
+border-radius:100%;
+box-shadow: 5px 5px 3px rgb(5, 5, 5);
+}
+div img{
+    width: min(500px, 70vw);
+    position: center;
+    box-shadow: 8px 8px 8px black;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0px auto;
+    margin-left: 50px;
+   
+}
+.flex div{
+    flex: 1px 1px 100px;
+    margin: 10px 10px;
+}
+/*------------------------------------------------------*/
+iframe{
+    display: block;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px rgb(5, 5, 5);
+    box-shadow: 8px 8px 8px rgb(24, 24, 24);
+}
+#setavoltar{
+    width: 50px;
+    right: 50px;
+    display: block;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration:none;
+}
+a{
+    margin-left: 32%;
+    color: aliceblue;
+    text-decoration: none;
+}
