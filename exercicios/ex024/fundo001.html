@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de backgrouds</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        background-image: url('imgs/wallpaper001.jpg');
+    }
+
+    div.quadrado{
+        border: 2px solid rgb(36, 35, 35);
+        display:inline-table;
+        margin-left: 10px;
+        border-radius: 20px;
+        box-shadow: 5px 7px 7px rgb(12 12 12 / 94%);
+        height: 300px;
+        width: 300px;
+    }
+    div#q1{
+        background-color: skyblue;
+    }
+    div#q2{
+        background-image: linear-gradient(to top, yellow, red);
+    }
+    div#q3{
+        background-image: url('imgs/pattern003.png');
+    }
+    h3{
+        background-color: white;
+        width: 180px;
+        border-radius: 50px;
+        margin: 130px 0 0 60px;
+    }
+</style>
+<body>
+    <div class="quadrado" id="q1">
+        <h3>background color</h3>
+    </div>  
+    <div class="quadrado" id="q2">
+        <h3>background imge</h3>
+    </div>
+    <div class="quadrado" id="q3">
+        <h3>Background image com url</h3>
+    </div>
+</body>
+</html>
