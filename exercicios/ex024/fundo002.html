@@ -6,37 +6,77 @@
     <title>Posições de um Background image</title>
 </head>
 <style>
+    body{
+        background-color: skyblue;
+    }
     .bloco{
         border: 2px solid black;
-        height: 180px;
-        width: 750px;
-        margin: auto;
-        margin-top: 15px;
+        height: 400px;
+        width: 400px;
+        margin:10px 10px 0 0;
+        margin-top: 10px;
+        border-radius: 40px;
+        box-shadow: 4px 3px 5px black;
+        display: inline-block;
+    }
+    .bloco2{
+        border: 2px solid black;
+        height: 250px;
+        width: 800px;
+        margin:10px 0 0 25%;
         border-radius: 40px;
         box-shadow: 4px 3px 5px black;
     }
-
+    .container{
+        margin-left: 25%;
+    }
     div#q1{
         background-image: url('imgs/wallpaper002.jpg');
         background-position: left top;
     }
     div#q2{
         background-image: url('imgs/wallpaper002.jpg');
+        background-position: right top;
+    }
+    div#q3{
+        background-image: url('imgs/wallpaper002.jpg');
         background-position: left bottom;
     }
-    div#q2{
+    div#q4{
         background-image: url('imgs/wallpaper002.jpg');
-        background-position: center center;
+        background-position: right bottom;
     }
-    div#q2{
-        background-image: url('imgs/wallpaper002.jpg');
-        background-position: etyj;
+    div#q5{
+        background-image: url('imgs/wallpaper003.jpg');
+        background-size: 800px;
+        height: 535px;
+        width: 800px;
+    }
+    div#q6{
+        background-image: url('imgs/wallpaper003.jpg');
+        background-position: top left;
+    }
+    div#q7{
+        background-image: url('imgs/wallpaper003.jpg');
+        background-position: center left;
+    }
+    div#q8{
+        background-image: url('imgs/wallpaper003.jpg');
+        background-position: bottom left;
     }
 </style>
 <body>
+    <div class="container">
     <div class="bloco" id="q1"></div>
     <div class="bloco" id="q2"></div>
     <div class="bloco" id="q3"></div>
     <div class="bloco" id="q4"></div>
+    <br>
+    <br>
+    <div id="q5"></div>
+    </div>
+    <div class="bloco2" id="q6"></div>
+    <div class="bloco2" id="q7"></div>
+    <div class="bloco2" id="q8"></div>
 </body>
 </html>
