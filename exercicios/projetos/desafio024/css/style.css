@@ -8,6 +8,7 @@
 }
 body{
     min-height: 100%;
+    background-image:linear-gradient( to bottom, #F2CEA2, #402813, #734C29, #A67246, #D9AB82);
 }
 header{
     background-color: black;
@@ -43,6 +44,7 @@ p a:hover{
     font-weight: 100;
 }
 main{
+    background-color: rgb(218, 218, 218);
     margin: auto;
     width:60%;
     box-shadow: 0px 0px 7px 3px;
@@ -50,43 +52,60 @@ main{
 main p{
     font-family: "Sriracha", sans-serif;
     padding: 0px 0 0px 40px;
-    font-size: 1.3em;
+    width: 340px;
+    font-size: 1.5em;
+    line-height: 2em;
 }
 .imgFundo p{
     background-color: rgba(17, 17, 17, 0.377);
     width: 340px;
     font-family: "Sriracha", sans-serif;
-    font-size: 1.5em;
+    font-size: 2vw;
+    text-shadow: 1px 1px 0px black;
     color: white;
-    padding: 10px 0 40px 40px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .imgFundo2 p{
     background-color: rgba(17, 17, 17, 0.377);
     width: 340px;
     font-family: "Sriracha", sans-serif;
-    font-size: 1.5em;
+    font-size: 2vw;
+    text-shadow: 1px 1px 0px black;
     color: white;
-    padding: 10px 0 40px 40px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 10px 10px 10px;
 }
 section.imgFundo{
     background-color: rgba(34, 34, 34, 0.164);
     background-image: url('../imgs/background001.jpg');
+    padding: 40px 0 40px 40px;
+    background-size: cover;
     background-position: right center;  
-    box-shadow: inset 0px 0px 5px 3px;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.473);
+    background-attachment: fixed;
 }
 section.imgFundo2{
+    background-color: rgba(34, 34, 34, 0.164);
     background-image: url('../imgs/background002.jpg');
-    background-size: 100% 100%;
+    padding: 40px 0 40px 40px;
+    background-size: cover;
+    background-position: right center;  
+    box-shadow: inset 6px 6px 10px 0px rgba(0, 0, 0, 0.473);
+    background-attachment: fixed;
 }
 
 section{
-    padding: 5px 0 5px 0;
+    
+    padding-top: 20vh;
+    padding-bottom: 20vh;
     font-size: 1.3em;
 }
-@media only screen and (max-width: 628px) {
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+@media only screen and (max-width: 658px) {
     main{
         min-width: 90%;
     }
