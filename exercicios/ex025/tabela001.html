@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha primeira tabela</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+    body{
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    table{
+        width: 300px;
+        border-collapse: collapse;
+    }
+    .linha{
+        background-color: gray;
+    }
+td{
+    border: 1px solid black;
+    padding: 8px;
+}
+#feriado:hover{
+    background-color:gold;
+}
+#mode_icon{
+    cursor: pointer;
+    background-color: rgb(116, 2, 223);
+    padding: 2px;
+    width: 50px;
+    height: 27px;
+    transform: translateX(10px);
+}
+</style>
+<body>
+    <h1>Essa é a primeira tabela simples</h1>
+    <span id="mode_icon" class="material-symbols-outlined">nightlight</span>
+    <table>
+        <tr>
+            <td>A1</td>
+            <td>B1</td>
+            <td>C1</td>
+            <td>D4</td>
+        </tr>
+        <tr>
+            <td>A2</td>
+            <td>B2</td>
+            <td>C2</td>
+            <td>D4</td>
+        </tr>
+        <tr class="linha">
+            <td>A3</td>
+            <td>B3</td>
+            <td id="feriado"><abbr title="Feriado">C3</abbr></td>
+            <td>D4</td>
+        </tr>
+        <tr>
+            <td>A4</td>
+            <td>B4</td>
+            <td>C4</td>
+            <td>D4</td>
+        </tr>
+    </table>
+    <script>
+         const mode = document.getElementById('mode_icon');
+        //OPÇÃO COM IF
+        /*mode.addEventListener("click", () => {
+        if (mode.textContent === "nightlight") {
+        mode.textContent = "sunny"; // Altere o texto para "sunny"
+    }   
+       else {
+        mode.textContent = "nightlight"; // Altere o texto de volta para "nightlight"
+    }
+    return;
+}); */
+            //OPÇÃO COM SWITCH
+        mode.addEventListener("click", () =>{
+            switch (mode.textContent){
+                case "nightlight":
+                    mode.textContent = "sunny";
+                    break;
+                case "sunny":
+                    mode.textContent = "nightlight";
+                    break;
+            }
+        });
+</script>
+</body>
+</html>
