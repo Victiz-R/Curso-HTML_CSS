@@ -20,10 +20,21 @@
 }
     body{
         font-family:Arial, Helvetica, sans-serif;
+        background-color: white;
+    }
+    body.dark{
+        background-color: rgb(12, 12, 12);
+        color: white;
     }
     table{
+        background-color: rgb(78, 78, 78);
         width: 300px;
         border-collapse: collapse;
+        color: white;
+    }
+    .dark{
+        background-color: white;
+        color: black;
     }
     .linha{
         background-color: gray;
@@ -34,6 +45,8 @@ td{
 }
 #feriado:hover{
     background-color:gold;
+    color: black;
+    cursor:default;
 }
 #mode_icon{
     cursor: pointer;
@@ -43,11 +56,56 @@ td{
     height: 27px;
     transform: translateX(10px);
 }
+label{
+    background-color: rgb(85, 85, 85);
+    display:flex;
+    width: 60px;
+    margin: 10px 0 20px 20px;
+    border-radius: 50px;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 3px;
+    align-items: center;
+}
+.checkbox{
+    opacity: 0;
+    display: absolute;
+}
+label .ball{
+    background-color:white;
+    position:absolute;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    
+    /*aqui vamos realizar a parte da animação que vai mover a ball no 
+    eixo X e vai sair do ponto 0
+    precisamos tbm fazer uma transição*/
+    transform: translateX(0px); 
+    transition: transform 0.2s linear;
+}
+/*Agora vamos aplicar a animação para quando o checkbox for selecionado ou checked*/
+.checkbox:checked + label .ball{
+    transform: translateX(37px);
+}
+#icon_moon{
+    color:#f1c40f
+}
+#icon_sun{
+    color: #f39c12;
+}
 </style>
 <body>
     <h1>Essa é a primeira tabela simples</h1>
-    <span id="mode_icon" class="material-symbols-outlined">nightlight</span>
-    <table>
+    <div>
+        <input type="checkbox" class="checkbox" id="chk">
+        <label for="chk">
+    <span id="icon_moon" class="material-symbols-outlined">brightness_2</span>
+    <span id="icon_sun" class="material-symbols-outlined">brightness_high</span>
+    <div class="ball"></div>
+    </label>
+    </div>
+    <table id="tabela1">
         <tr>
             <td>A1</td>
             <td>B1</td>
@@ -60,7 +118,7 @@ td{
             <td>C2</td>
             <td>D4</td>
         </tr>
-        <tr class="linha">
+        <tr>
             <td>A3</td>
             <td>B3</td>
             <td id="feriado"><abbr title="Feriado">C3</abbr></td>
@@ -74,9 +132,9 @@ td{
         </tr>
     </table>
     <script>
-         const mode = document.getElementById('mode_icon');
+        /*const mode = document.getElementById('mode_icon');
         //OPÇÃO COM IF
-        /*mode.addEventListener("click", () => {
+        mode.addEventListener("click", () => {
         if (mode.textContent === "nightlight") {
         mode.textContent = "sunny"; // Altere o texto para "sunny"
     }   
@@ -86,6 +144,7 @@ td{
     return;
 }); */
             //OPÇÃO COM SWITCH
+            /*
         mode.addEventListener("click", () =>{
             switch (mode.textContent){
                 case "nightlight":
@@ -95,6 +154,14 @@ td{
                     mode.textContent = "nightlight";
                     break;
             }
+        });*/
+        
+        const chk = document.getElementById('chk');
+        const table = document.getElementById('tabela1');
+
+        chk.addEventListener("change", ()=>{
+            document.body.classList.toggle('dark');
+            table.classList.toggle('dark');
         });
 </script>
 </body>
