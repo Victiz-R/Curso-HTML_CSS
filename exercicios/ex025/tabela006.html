@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media de notas</title>
+</head>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 5px 40px 5px 40px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(163, 163, 163);
+            color: white;
+            font-size: 1.2em;
+        }
+        .thNormal{
+            background-color: white;
+            color: black;
+        }
+        .notaM, .notaF, .notaQ, .notaQ, .notaB, .notaH, .notaG{
+            text-align: center;
+            width: 70px;
+            font-weight: bolder;
+        }
+        #mediaM, #mediaF, #mediaQ, #mediaB, #mediaH, #mediaG{
+            text-align: center;
+            width: 70px;
+            font-weight: bolder;
+        }
+    </style>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Área</th>
+                <th rowspan="2">Disciplinas</th>
+                <th colspan="2">Notas</th>
+                <th rowspan="2">Média</th>
+            </tr>
+            <tr>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th rowspan="5" class="thNormal">Exatas</th>
+            </tr>
+            <tr>
+                <td>Matemática</td>
+                <td><input type="text" class="notaM" placeholder="0.0"></td>
+                <td><input type="text" class="notaM" placeholder="0.0"></td>
+                <td><input type="text" id="mediaM" placeholder="0.0"></td>
+            </tr>
+            <tr>
+                <td>Física</td>
+                <td><input type="text" class="notaF" placeholder="0.0" oninput="calcularMedia('F')"></td>
+                <td><input type="text" class="notaF" placeholder="0.0" oninput="calcularMedia('F')"></td>
+                <td><input type="text" id="mediaF" placeholder="0.0"></td>
+            </tr>
+            <tr>
+                <td>Química</td>
+                <td><input type="text" class="notaQ" placeholder="0.0" oninput="calcularMedia('Q')"></td>
+                <td><input type="text" class="notaQ" placeholder="0.0" oninput="calcularMedia('Q')"></td>
+                <td><input type="text" id="mediaQ" placeholder="0.0"></td>
+            </tr>
+            <tr>
+                <td>Biologia</td>
+                <td><input type="text" class="notaB" placeholder="0.0" oninput="calcularMedia('B')"></td>
+                <td><input type="text" class="notaB" placeholder="0.0" oninput="calcularMedia('B')"></td>
+                <td><input type="text" id="mediaB" placeholder="0.0"></td>
+            </tr>
+            <tr>
+                <th colspan="4">Média de Exatas</th>
+                <th class="mediaExatas">0.0</th>
+            </tr>
+            <tr>
+                <th rowspan="2" class="thNormal">Humanas</th>
+                <td>História</td>
+                <td><input type="text" class="notaH" placeholder="0.0" oninput="calcularMedia('H')"></td>
+                <td><input type="text" class="notaH" placeholder="0.0" oninput="calcularMedia('H')"></td>
+                <td><input type="text" id="mediaH" placeholder="0.0"></td>
+            </tr>
+            <tr>
+                <td>Gerografia</td>
+                <td><input type="text" class="notaG" placeholder="0.0" oninput="calcularMedia('G')"></td>
+                <td><input type="text" class="notaG" placeholder="0.0" oninput="calcularMedia('G')"></td>
+                <td><input type="text" id="mediaG" placeholder="0.0"></td>
+            </tr>
+            <tr>
+                <th colspan="4">Média de Humanas</th>
+                <th class="mediaHumanas">0.0</th>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+       /* function calcularMedia() {
+            //Obter todos os elementos com a classe 'notaF'
+            const notas = document.querySelectorAll('.notaF');
+            let soma = 0;
+            let count = 0;
+
+            //Percorre cada input e calcula a soma das notas válidas
+            notas.forEach(nota =>{
+                const valor = parseFloat(nota.value);
+                if(!isNaN(valor)){
+                    soma += valor;
+                    count++;
+                }
+            });
+
+            //Calcula a média
+            const media = count > 0 ? (soma / count) : 0;
+
+            //Exibe a média no input 'mediaF'
+            document.getElementById('mediaF').value = media.toFixed(1); // Mostra uma casa decimal
+        }*/
+       /*
+       function calcularMedia(tipo){
+            let notas, mediaInput;
+            switch (tipo){
+                case 'M':
+                    notas = document.querySelectorAll('.notaM');
+                    mediaInput = document.getElementById('mediaM');
+                    break;
+                case 'F':
+                    notas = document.querySelectorAll('F');
+                    mediaInput = document.getElementById('F');
+                    break;
+                case 'Q':
+                    notas = document.querySelectorAll('Q');
+                    mediaInput = document.getElementById('Q');
+                    break;
+                case 'B':
+                    notas = document.querySelectorAll('B');
+                    mediaInput = document.getElementById('B');
+                    break;
+                case 'H':
+                    notas = document.querySelectorAll('H');
+                    mediaInput = document.getElementById('H');
+                    break;
+                case 'G':
+                notas = document.querySelectorAll('.notas');
+                    const mediaHistInput = document.querySelector('.mediaHist');
+                    const mediaGeoInput = document.querySelector('.mediaGeo');
+                    calcularMediaIndividual(notas, mediaHistInput);
+                    calcularMediaIndividual(notas, mediaGeoInput);
+                    return;  //Retorna para não fazer o cálculo novamente
+            }
+            calcularMediaIndividual(notas, mediaInput);
+            atualizarMediaExatas();
+            atualizarMediaHumanas();
+       }
+       function calcularMediaIndividual(notas, mediaInput){
+            let soma = 0;
+            let count = 0;
+
+            notas.forEach(nota =>{
+                const valor = parseFloat(nota.value);
+                if(!isNaN(valor)){
+                    soma += valor;
+                    count++;
+                }
+            });
+
+             //Calcula a média
+             const media = count > 0 ? (soma / count) : 0;
+             mediaInput.value = media.toFixed(1);
+       }
+       function atualizarMediaExatas(){
+        const medias = [
+            parseFloat(document.getElementById('mediaM').value) || 0,
+            parseFloat(document.getElementById('mediaF').value) || 0,
+            parseFloat(document.getElementById('mediaQ').value) || 0,
+            parseFloat(document.getElementById('mediaB').value) || 0,
+        ];
+        const soma = medias.reduce((acc, curr) => acc + curr, 0);
+        const mediaExatas = medias.filter(m => m > 0).length > 0 ? (soma / medias.length): 0;
+        document.getElementById('mediaExatas').innerText = mediaExatas.toFixed(1);
+       }
+
+       function atualizarMediaHumanas(){
+        const notasHumanas = document.querySelectorAll('.notas');
+        let soma = 0;
+        let count = 0;
+
+        notasHumanas.forEach(nota =>{
+            const valor = parseFloat(nota.value);
+                if(!isNaN(valor)){
+                    soma += valor;
+                    count++;
+                }
+            });
+
+            const mediaHumanas = count > 0 ? (soma / count) : 0;
+            document.getElementById('mediaHumanas').innerHTML = mediaHumanas.toFixed(1);
+       } */
+
+       function calcularMedia(tipo) {
+            let notas, mediaInput;
+            switch (tipo) {
+                case 'M':
+                    notas = document.querySelectorAll('.notaM');
+                    mediaInput = document.getElementById('mediaM');
+                    break;
+                case 'F':
+                    notas = document.querySelectorAll('.notaF');
+                    mediaInput = document.getElementById('mediaF');
+                    break;
+                case 'Q':
+                    notas = document.querySelectorAll('.notaQ');
+                    mediaInput = document.getElementById('mediaQ');
+                    break;
+                case 'B':
+                    notas = document.querySelectorAll('.notaB');
+                    mediaInput = document.getElementById('mediaB');
+                    break;
+                case 'H':
+                case 'G':
+                    notas = document.querySelectorAll('.notas');
+                    const mediaHistInput = document.querySelector('.mediaHist');
+                    const mediaGeoInput = document.querySelector('.mediaGeo');
+                    calcularMediaIndividual(notas, mediaHistInput);
+                    calcularMediaIndividual(notas, mediaGeoInput);
+                    return; // Retorna para não fazer o cálculo novamente
+            }
+
+            calcularMediaIndividual(notas, mediaInput);
+            atualizarMediaExatas();
+            atualizarMediaHumanas();
+        }
+
+        function calcularMediaIndividual(notas, mediaInput) {
+            let soma = 0;
+            let count = 0;
+
+            notas.forEach(nota => {
+                const valor = parseFloat(nota.value);
+                if (!isNaN(valor)) {
+                    soma += valor;
+                    count++;
+                }
+            });
+
+            const media = count > 0 ? (soma / count) : 0;
+            mediaInput.value = media.toFixed(1);
+        }
+
+        function atualizarMediaExatas() {
+            const medias = [
+                parseFloat(document.getElementById('mediaM').value) || 0,
+                parseFloat(document.getElementById('mediaF').value) || 0,
+                parseFloat(document.getElementById('mediaQ').value) || 0,
+                parseFloat(document.getElementById('mediaB').value) || 0,
+            ];
+            const soma = medias.reduce((acc, curr) => acc + curr, 0);
+            const mediaExatas = medias.filter(m => m > 0).length > 0 ? (soma / medias.length) : 0;
+            document.getElementById('mediaExatas').innerText = mediaExatas.toFixed(1);
+        }
+
+        function atualizarMediaHumanas() {
+            const notasHumanas = document.querySelectorAll('.notas');
+            let soma = 0;
+            let count = 0;
+
+            notasHumanas.forEach(nota => {
+                const valor = parseFloat(nota.value);
+                if (!isNaN(valor)) {
+                    soma += valor;
+                    count++;
+                }
+            });
+
+            const mediaHumanas = count > 0 ? (soma / count) : 0;
+            document.getElementById('mediaHumanas').innerText = mediaHumanas.toFixed(1);
+        }
+    </script>
+</body>
+</html>
