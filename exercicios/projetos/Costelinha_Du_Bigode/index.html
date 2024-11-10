@@ -4,19 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Costelinha_Du_Bigode_início</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <!--Fontes do google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--Fontes usadas-->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Faculty+Glyphic&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Costelinha Du Bigode</h1>
-    <nav>
+    <!--<img class="logo" src="imgs/perfil.png">-->
+    <nav class="menu">
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Pedidos</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pedidos.html">Pedidos</a></li>
             <li><a href="">Reserva</a></li>
             <li><a href="">Contato</a></li>
         </ul>
     </nav>
+    <img class="logo" src="assets/imgs/perfil.png">
+<h1>Costelinha Du Bigode</h1>
+    <div class="slider">
+        <div class="slides">
+            <!--RADIO BUTTONS-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <!--FIM RADIO BUTTONS-->
 
-    <div>
+            <!--SLIDE IMAGENS-->
+            <div class="slide first">
+                <img class="imgSlider" src="assets/imgs/costelinha grande.jpg" alt="imagem 1">
+            </div>
+            <div class="slide">
+                <img class="imgSlider" src="assets/imgs/frangoEporcao.jpg" alt="imagem 2">
+            </div>
+            <div class="slide">
+                <img class="imgSlider" src="assets/imgs/costelinha-suina-na-panela-de-pressao-1.jpeg" alt="imagem 3">
+            </div>
+            <!--FIM SLIDE IMAGENS-->
+
+            <!--NAVIGATION AUTO-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>
+            
+        </div>
+        <div class="manual-navigation">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+    </div>
+    <div id="corpo">
         <h2>Um pouco da gente!</h2>
         <p>
         <strong>Restaurante Costelinha do Bigode</strong>Fundado por Zezão, o Costelinha do Bigode é um restaurante que traz o melhor da comida caseira, com receitas passadas de geração em geração. Iniciado como um pequeno negócio familiar, o restaurante é conhecido por sua costelinha suculenta, feita com um tempero especial que virou segredo da casa. O cardápio também inclui pratos clássicos da culinária brasileira, preparados com ingredientes frescos e com aquele sabor acolhedor de comida feita em casa.  
@@ -24,5 +67,7 @@
         Com um ambiente simples e aconchegante, o Costelinha do Bigode é o lugar ideal para quem busca uma refeição saborosa, repleta de tradições e carinho, como as que se compartilham entre familiares.
         </p>
     </div>
+    <!--Link JS-->
+<script src="assets/js/js.js"></script>
 </body>
 </html>

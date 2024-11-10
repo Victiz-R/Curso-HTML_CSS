@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costelinha_Du_Bigode_início</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <!--Fontes do google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Fontes usadas-->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Faculty+Glyphic&display=swap" rel="stylesheet">
+</head>
+<style>
+    form {
+        padding: 10px;
+        margin: 80px auto;
+        text-align: center;
+        background-color: whitesmoke;
+        border-radius: 0 20px 0 20px;
+        width: 500px;
+        font-size: 1.2em;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 5px 4px 8px black;
+    }
+
+    form h2 {
+        font-size: 2em;
+    }
+
+    form label {
+        text-align: left;
+        display: block;
+        margin: 20px 0 8px 30px;
+    }
+
+    form input,
+    form textarea {
+        width: 90%;
+        padding: 5px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+
+    form textarea {
+        height: 80px;
+        resize: none;
+    }
+
+    #btnenviar {
+        background-color: #fc6a1b;
+        padding: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 1px 1px 4px black;
+        cursor: pointer;
+    }
+
+    #btnenviar:hover {
+        color: black;
+    }
+</style>
+<body>
+    <!--<img class="logo" src="imgs/perfil.png">-->
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pedidos.html">Pedidos</a></li>
+            <li><a href="">Reserva</a></li>
+            <li><a href="">Contato</a></li>
+        </ul>
+    </nav>
+    <img class="logo" src="assets/imgs/perfil.png">
+    <h1>Costelinha Du Bigode</h1>
+    <form>
+        <h2>Faça seu pedido!</h2>
+        <label for="">Nome:</label>
+        <input type="text" class="nome" placeholder="Digite seu nome">
+
+        <label for="">Localização:</label>
+        <abbr title="Coloque um ponto de referencia para agilizar a entrega">
+            <input type="text" class="localizacao" placeholder="Digite seu endereço">
+        </abbr>
+
+        <label for="">Telefone:</label>
+        <input type="text" class="telefone" placeholder="Digite seu número para contato">
+
+        <label for="">Seu pedido:</label>
+        <textarea name="Pedido" class="txtpedido" placeholder="Digite seu pedido. Caso precise, digite o valor da porção de carne"></textarea>
+
+        <button type="button" onclick="enviarpedido();" id="btnenviar">Enviar Pedido</button>
+    </form>
+
+    <script src="assets/js/js.js"></script>
+</body>
+</html>
