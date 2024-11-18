@@ -1,0 +1,8 @@
+{
+    "files.eol": "\r\n",
+    "editor.tabSize": 2, //vai dizer o espaçamento do TAB
+
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    }
+}
