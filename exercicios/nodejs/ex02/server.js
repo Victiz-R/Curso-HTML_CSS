@@ -2,7 +2,9 @@ import express from "express" //importando o express
 import routes from "./src/routes/postRoutes.js";
 
 const app = express(); 
-routes(app)
+routes(app
+    
+)
 
 app.listen (3000, () => { //aqui o listen(escutando) o app(express/servidor), o 3000 é a porta de acesso
     console.log("Servidor escutando..."); //Console.log vai mostrar algo no console
