@@ -45,7 +45,7 @@ h1{
 
 }
 ul li{
-	 margin: -5px 10px 0 0;
+	 margin: 5px 10px 0 0;
 	display: inline-block;
 }
 li{
@@ -159,4 +159,119 @@ a:hover{
 }
 #corpo h2{
 	text-align: center;
+}
+main{
+	margin-bottom: 10vw;
+}
+footer{
+	background-color: rgba(136, 136, 136, 0.479);
+	box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.473);
+	
+}
+footer iframe{
+	margin: 5px 0 0 5px ;
+	position: relative;
+	
+}
+footer p{
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-weight:bold;
+	color: white;
+	text-shadow: 1px 2px 2px black;
+}
+footer #menu-rodape{
+	margin-top:-20px;
+}
+.iconsSocial{
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	box-shadow: 2px 3px 0 black;
+}
+.iconstiktok{
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border:1px solid black;
+	box-shadow: 2px 3px 0 black;
+}
+#maps{
+ box-shadow: 2px 2px 3px black;
+ border:solid 1px rgb(110, 110, 110) ;
+}
+
+/*CSS Reserva*/
+
+.container{
+	background-color: white;
+	width: 450px;
+	height: 500px;
+	margin: auto;
+	margin-top: 50px;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 3px 4px 5px black;
+}
+h2{
+ text-align: center;
+ font-family:Arial, Helvetica, sans-serif;
+ color:#1f1e1e;
+}
+label{
+	font-size: 17px;
+	display: block;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	margin-left: 25px;
+	margin-bottom: 5px;
+}
+input, select, button{
+	width: 90%;
+	padding: 10px;
+	margin: 10px 0 10px 20px;
+	border: 1px solid #ddd;
+	box-sizing: border-box;	
+}
+input:hover, select:hover, button:hover{
+	box-shadow: 1px 2px 3px black;
+}
+button{
+	background-color:#fb671a;
+	color: white;
+	cursor: pointer;
+	font-size: 17px;
+}
+.confirmation{
+	display: none;
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px;
+	margin-top: 10px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.table-container{
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0;
+}
+.table{
+	width: 30px;
+	height: 30px;
+	background-color:#4CAF50 ;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.table.selected {
+	background-color:#ffa500 ;
+}
+.table.occupied{
+	background-color:#e74c3c;
+	cursor: not-allowed;
+}
+.table-info{
+	margin-top: 10px;
+	font-size: 14px;
 }

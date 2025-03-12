@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas_Costelinha_Du_Bigode</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <!--Fontes do google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--Fontes usadas-->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Faculty+Glyphic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><!--<img class="logo" src="imgs/perfil.png">-->
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pedidos.html">Pedidos</a></li>
+            <li><a href="reserva.html">Reserva</a></li>
+            <li><a href="teste.html">Contato</a></li>
+        </ul>
+    </nav>
+    <img class="logo" src="assets/imgs/perfil.png">
+</header>
+<main>
+<h1>Costelinha Du Bigode</h1>
+
+    <div class="container">
+        <form id="reserva_mesas">
+            <h2>Reserva de Mesa:</h2>
+
+            <label for="date">Data:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Hora:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="numeroPessoas">Número de Pessoas:</label>
+            <select name="numeroPessoas" id="numeroPessoas" required>
+                <option value="1">1 Pessoa</option>
+                <option value="2">2 Pessoas</option>
+                <option value="3">3 Pessoas</option>
+                <option value="4">4 Pessoas</option>
+                <option value="5">5 Pessoas</option>
+                <option value="6">6 Pessoas</option>
+                <option value="7">7 Pessoas</option>
+                <option value="8">8 Pessoas</option>
+            </select>
+
+            <button type="submit">Reservar</button>
+            
+        </form>
+        <div class="table-container" id="table-container">
+            <!-- Mesas Dinâmicas -->
+        </div>
+
+        <div id="confirmation" class="confirmation">
+            Reserva Confirmada! <br>
+            Sua mesa foi reservada.
+        </div>
+
+        <div class="table-info">
+            <span style="color: #4CAF50;">Disponível</span> |
+            <span style="color: #ffa500;">Selecionada</span>| 
+            <span style="color: #e74c3c;">Ocupada</span>
+        </div>
+    </div>
+</main>
+<footer>
+    <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d976.7011639183462!2d-38.6773016!3d-4.1524323!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7bf4b61a762e529%3A0xf524971a08951748!2sCOSTELINHA%20DU%20BIGODE!5e1!3m2!1spt-BR!2sbr!4v1741483174616!5m2!1spt-BR!2sbr" width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</footer>
+    <!--Link JS-->
+<script src="assets/js/js.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Mesas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            color: #666;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .confirmation {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .table {
+            width: 30px;
+            height: 30px;
+            background-color: #4CAF50;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .table.selected {
+            background-color: #ffa500;
+        }
+
+        .table.occupied {
+            background-color: #e74c3c;
+            cursor: not-allowed;
+        }
+
+        .table-info {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Reserva de Mesa</h1>
+
+    <form id="reservation-form">
+        <label for="date">Data:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Hora:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="guests">Número de Pessoas:</label>
+        <select id="guests" name="guests" required>
+            <option value="1">1 Pessoa</option>
+            <option value="2">2 Pessoas</option>
+            <option value="3">3 Pessoas</option>
+            <option value="4">4 Pessoas</option>
+            <option value="5">5 Pessoas</option>
+            <option value="6">6 Pessoas</option>
+        </select>
+
+        <button type="submit">Reservar</button>
+    </form>
+
+    <div class="table-container" id="table-container">
+        <!-- Mesas Dinâmicas -->
+    </div>
+
+    <div id="confirmation" class="confirmation">
+        Reserva Confirmada! <br>
+        A sua mesa foi reservada.
+    </div>
+
+    <div class="table-info">
+        <span style="color: #4CAF50;">Disponível</span> | 
+        <span style="color: #ffa500;">Selecionada</span> | 
+        <span style="color: #e74c3c;">Ocupada</span>
+    </div>
+</div>
+
+<script>
+    // Dados de mesas (fictícias)
+    const tables = [
+        { id: 1, available: true, selected: false },
+        { id: 2, available: false, selected: false },
+        { id: 3, available: true, selected: false },
+        { id: 4, available: true, selected: false },
+        { id: 5, available: false, selected: false },
+        { id: 6, available: true, selected: false },
+        { id: 7, available: true, selected: false },
+        { id: 8, available: false, selected: false }
+    ];
+
+    // Renderiza as mesas
+    function renderTables() {
+        const tableContainer = document.getElementById('table-container');
+        tableContainer.innerHTML = '';  // Limpa a área antes de re-renderizar
+
+        tables.forEach(table => {
+            const tableElement = document.createElement('div');
+            tableElement.classList.add('table');
+
+            // Verifica se a mesa está ocupada
+            if (!table.available) {
+                tableElement.classList.add('occupied');
+                tableElement.title = 'Mesa Ocupada';
+            }
+
+            // Verifica se a mesa foi selecionada
+            if (table.selected) {
+                tableElement.classList.add('selected');
+            }
+
+            // Adiciona evento de clique
+            tableElement.addEventListener('click', () => selectTable(table));
+
+            tableContainer.appendChild(tableElement);
+        });
+    }
+
+    // Função para selecionar a mesa
+    function selectTable(table) {
+        if (!table.available) return; // Não permite selecionar mesas ocupadas
+
+        // Marca ou desmarca a mesa como selecionada
+        table.selected = !table.selected;
+        renderTables();
+    }
+
+    // Função para reservar
+    document.getElementById('reservation-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const guests = document.getElementById('guests').value;
+
+        // Verifica se uma mesa foi selecionada
+        const selectedTable = tables.find(table => table.selected);
+
+        if (!selectedTable) {
+            alert("Por favor, selecione uma mesa!");
+            return;
+        }
+
+        // Atualiza a disponibilidade da mesa (agora ocupada)
+        selectedTable.available = false;
+        selectedTable.selected = false;
+
+        // Exibe a confirmação
+        const confirmation = document.getElementById('confirmation');
+        confirmation.style.display = 'block';
+        confirmation.innerHTML = `Reserva Confirmada! <br> Mesa ${selectedTable.id} <br> Data: ${date} <br> Hora: ${time} <br> Número de Pessoas: ${guests}`;
+
+        // Limpa o formulário e re-renderiza as mesas
+        document.getElementById('reservation-form').reset();
+        renderTables();
+    });
+
+    // Chama a função para renderizar as mesas ao carregar a página
+    renderTables();
+</script>
+
+</body>
+</html>
