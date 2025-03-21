@@ -205,7 +205,7 @@ footer #menu-rodape{
 .container{
 	background-color: white;
 	width: 450px;
-	height: 500px;
+	height: 615px;
 	margin: auto;
 	margin-top: 50px;
 	padding: 10px;
@@ -251,27 +251,35 @@ button{
 	border-radius: 5px;
 }
 
-.table-container{
-	display: flex;
-	justify-content: space-between;
-	margin: 20px 0;
+.table-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	justify-content: center;
+	margin-left: 50px;
 }
-.table{
-	width: 30px;
-	height: 30px;
-	background-color:#4CAF50 ;
-	border-radius: 5px;
+
+.table {
+	width: 35px;
+	height: 35px;
+	background-color: #4CAF50;
+	border-radius: 4px;
 	cursor: pointer;
+	margin: 5px;
 }
 
 .table.selected {
-	background-color:#ffa500 ;
+	background-color: #ffa500;
 }
-.table.occupied{
-	background-color:#e74c3c;
+
+.table.occupied {
+	background-color: #e74c3c;
 	cursor: not-allowed;
 }
-.table-info{
-	margin-top: 10px;
+
+.container .table-info {
+	margin-top: 15px;
 	font-size: 14px;
+	font-weight: bolder;
+	bottom: 0;
+	text-align: center;
 }
