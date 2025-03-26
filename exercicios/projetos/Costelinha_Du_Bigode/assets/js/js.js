@@ -13,6 +13,16 @@ function nextImage(){
 
     document.getElementById("radio"+count).checked = true;
 }
+//Modo escuro nas paginas usando o localStorage
+
+//aqui vou pegar os elementos
+const chk = document.getElementById('chk');
+
+//Aqui vou adicionar um evento "sempre que o chk mudar" ou uma class dark é criada ou apagada
+chk.addEventListener("change", ()=>{
+    document.body.classList.toggle('dark');
+    table.classList.toggle('dark');
+});
 
 //Vai para o formulario de envio de pedido
 

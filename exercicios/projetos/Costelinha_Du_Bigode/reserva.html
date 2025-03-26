@@ -11,7 +11,8 @@
 <!--Fontes usadas-->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Faculty+Glyphic&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
 <style></style>
 </head>
 <body>
@@ -25,6 +26,14 @@
         </ul>
     </nav>
     <img class="logo" src="assets/imgs/perfil.png">
+    <div id="mode">
+        <input type="checkbox" class="checkbox" id="chk">
+        <label for="chk" id="chk">
+            <span id="icon_moon" class="material-symbols-outlined">brightness_2</span>
+            <span id="icon_sun" class="material-symbols-outlined">brightness_high</span>
+            <div class="ball"></div>
+        </label>
+    </div>
 </header>
 <main>
 <h1>Costelinha Du Bigode</h1>
@@ -71,6 +80,7 @@
 <footer>
     <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d976.7011639183462!2d-38.6773016!3d-4.1524323!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7bf4b61a762e529%3A0xf524971a08951748!2sCOSTELINHA%20DU%20BIGODE!5e1!3m2!1spt-BR!2sbr!4v1741483174616!5m2!1spt-BR!2sbr" width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </footer>
+<script src="assets/js/js.js"></script>
 <script>
     // Dados de mesas (fictícias)
     const tables = [
