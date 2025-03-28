@@ -22,7 +22,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="pedidos.html">Pedidos</a></li>
             <li><a href="reserva.html">Reserva</a></li>
-            <li><a href="teste.html">Contato</a></li>
+            <li><a href="">Contato</a></li>
         </ul>
     </nav>
     <img class="logo" src="assets/imgs/perfil.png">
@@ -78,7 +78,21 @@
 </div>
 </main>
 <footer>
-    <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d976.7011639183462!2d-38.6773016!3d-4.1524323!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7bf4b61a762e529%3A0xf524971a08951748!2sCOSTELINHA%20DU%20BIGODE!5e1!3m2!1spt-BR!2sbr!4v1741483174616!5m2!1spt-BR!2sbr" width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d976.7011639183462!2d-38.6773016!3d-4.1524323!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7bf4b61a762e529%3A0xf524971a08951748!2sCOSTELINHA%20DU%20BIGODE!5e1!3m2!1spt-BR!2sbr!4v1741483174616!5m2!1spt-BR!2sbr" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <div class="menu-rodape">
+        <ul>
+            <li><a href="">Trabalhe conosco</a></li>
+            <li><a href="">Fale conosco</a></li>
+            <li><a href="">Galeria</a></li>
+        </ul>
+        <ul>
+            <p>Redes Sociais</p>
+            <li><a href=""><img class="iconsSocial" src="assets/imgs/instagram.png" alt="icone instagram"></a></li>
+            <li><a href=""><img class="iconsSocial" src="assets/imgs/facebook.png" alt="icone facebook"></a></li>
+            <li><a href=""></a><img class="iconstiktok" src="assets/imgs/tiktok.png" alt="icone tiktok"></li>
+        </ul>
+    </div>
 </footer>
 <script src="assets/js/js.js"></script>
 <script>
@@ -212,7 +226,40 @@ confirmation.innerHTML = `Reserva Confirmada! <br> Mesa ${selectedTable.id} <br>
     window.location.href = url;
 }
 
+// >>Modo Dark<<
 
+//aqui vou pegar os elementos
+const chk = document.getElementById('chk');
+const table = document.querySelector('table');  // ou algum seletor de tabela específico
+
+
+//Aqui vou adicionar um evento "sempre que o chk mudar" ou uma class dark é criada ou apagada
+chk.addEventListener("change", ()=>{
+    document.body.classList.toggle('dark');
+    table.classList.toggle('dark');
+});
+    document.addEventListener('DOMContentLoaded', ()=> {
+        //Verifica se há uma preferência salva no localStorage
+        const darkModePreference = localStorage.getItem('darkMode') === 'true';
+
+        //Se a preferência for salva como true, aplica o modo escuro
+        if (darkModePreference){
+            document.body.classList.add('dark');
+            document.getElementById('chk').checked = true;
+        }
+
+        //Adiciona um ouvinte de evento para o checkbox
+        const checkbox = document.getElementById('chk');
+        checkbox.addEventListener('change', () =>{
+            if (checkbox.checked){
+                document.body.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            }else{
+                document.body.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            }
+        });
+    });
 </script>
 </body>
 </html>

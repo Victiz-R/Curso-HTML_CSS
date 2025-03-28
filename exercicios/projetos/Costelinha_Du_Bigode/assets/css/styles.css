@@ -62,6 +62,57 @@ a:hover{
 	color: black;
 	text-shadow: 1px 1px 1px whitesmoke;
 }
+/*Form pedido*/
+    
+    .formPedido {
+        padding: 10px;
+        margin: 30px auto;
+        text-align: center;
+        background-color: whitesmoke;
+        border-radius: 0 20px 0 20px;
+        width: 500px;
+        font-size: 1.2em;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 5px 4px 8px black;
+    }
+
+    .formPedido h2 {
+        font-size: 2em;
+    }
+
+    .formPedido label {
+        text-align: left;
+        display: block;
+        margin: 20px 0 8px 30px;
+    }
+
+    .formPedido input,
+    .formPedido textarea {
+        width: 90%;
+        padding: 5px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+
+    .formPedido textarea {
+        height: 80px;
+        resize: none;
+    }
+
+    #btnenviar {
+        background-color: #fc6a1b;
+        padding: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 1px 1px 4px black;
+        cursor: pointer;
+    }
+
+    #btnenviar:hover {
+        color: black;
+    }
 /*Css Mode*/
 #mode{
 	margin-top: -35px;

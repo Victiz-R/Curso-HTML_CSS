@@ -1,109 +1,47 @@
-
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Mesas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        label {
-            font-size: 14px;
-            color: #666;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .confirmation {
-            display: none;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            margin-top: 10px;
-            text-align: center;
-            border-radius: 4px;
-        }
-
-        .table-container {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-        }
-
-        .table {
-            width: 30px;
-            height: 30px;
-            background-color: #4CAF50;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .table.selected {
-            background-color: #ffa500;
-        }
-
-        .table.occupied {
-            background-color: #e74c3c;
-            cursor: not-allowed;
-        }
-
-        .table-info {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-    </style>
+    <title>Reservas_Costelinha_Du_Bigode</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <!--Fontes do google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--Fontes usadas-->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Faculty+Glyphic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
+<style></style>
 </head>
 <body>
+    <header><!--<img class="logo" src="imgs/perfil.png">-->
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pedidos.html">Pedidos</a></li>
+            <li><a href="reserva.html">Reserva</a></li>
+            <li><a href="">Contato</a></li>
+        </ul>
+    </nav>
+    <img class="logo" src="assets/imgs/perfil.png">
+    <div id="mode">
+        <input type="checkbox" class="checkbox" id="chk">
+        <label for="chk" id="chk">
+            <span id="icon_moon" class="material-symbols-outlined">brightness_2</span>
+            <span id="icon_sun" class="material-symbols-outlined">brightness_high</span>
+            <div class="ball"></div>
+        </label>
+    </div>
+</header>
+<main>
+<h1>Costelinha Du Bigode</h1>
 
 <div class="container">
     <h1>Reserva de Mesa</h1>
 
-    <form id="reservation-form">
+    <form id="reserva_mesas">
         <label for="date">Data:</label>
         <input type="date" id="date" name="date" required>
 
@@ -120,7 +58,7 @@
             <option value="6">6 Pessoas</option>
         </select>
 
-        <button type="submit">Reservar</button>
+        <button type="button" onclick="enviarReserva();" id="btnenviar">Reservar</button>
     </form>
 
     <div class="table-container" id="table-container">
@@ -138,46 +76,52 @@
         <span style="color: #e74c3c;">Ocupada</span>
     </div>
 </div>
-
+</main>
+<footer>
+    <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d976.7011639183462!2d-38.6773016!3d-4.1524323!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7bf4b61a762e529%3A0xf524971a08951748!2sCOSTELINHA%20DU%20BIGODE!5e1!3m2!1spt-BR!2sbr!4v1741483174616!5m2!1spt-BR!2sbr" width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</footer>
+<script src="assets/js/js.js"></script>
 <script>
     // Dados de mesas (fictícias)
     const tables = [
         { id: 1, available: true, selected: false },
-        { id: 2, available: false, selected: false },
+        { id: 2, available: true, selected: false },
         { id: 3, available: true, selected: false },
         { id: 4, available: true, selected: false },
-        { id: 5, available: false, selected: false },
+        { id: 5, available: true, selected: false },
         { id: 6, available: true, selected: false },
         { id: 7, available: true, selected: false },
-        { id: 8, available: false, selected: false }
+        { id: 8, available: true, selected: false }
     ];
 
     // Renderiza as mesas
     function renderTables() {
-        const tableContainer = document.getElementById('table-container');
-        tableContainer.innerHTML = '';  // Limpa a área antes de re-renderizar
+    const tableContainer = document.getElementById('table-container');
+    tableContainer.innerHTML = '';  // Limpa a área antes de re-renderizar
 
-        tables.forEach(table => {
-            const tableElement = document.createElement('div');
-            tableElement.classList.add('table');
+    tables.forEach(table => {
+        const tableElement = document.createElement('div');
+        tableElement.classList.add('table');
+        tableElement.setAttribute('data-id', table.id); // Adiciona o atributo data-id
 
-            // Verifica se a mesa está ocupada
-            if (!table.available) {
-                tableElement.classList.add('occupied');
-                tableElement.title = 'Mesa Ocupada';
-            }
+        // Verifica se a mesa está ocupada
+        if (!table.available) {
+            tableElement.classList.add('occupied');
+            tableElement.title = 'Mesa Ocupada';
+        }
 
-            // Verifica se a mesa foi selecionada
-            if (table.selected) {
-                tableElement.classList.add('selected');
-            }
+        // Verifica se a mesa foi selecionada
+        if (table.selected) {
+            tableElement.classList.add('selected');
+        }
 
-            // Adiciona evento de clique
-            tableElement.addEventListener('click', () => selectTable(table));
+        // Adiciona evento de clique
+        tableElement.addEventListener('click', () => selectTable(table));
 
-            tableContainer.appendChild(tableElement);
-        });
-    }
+        tableContainer.appendChild(tableElement);
+    });
+}
+
 
     // Função para selecionar a mesa
     function selectTable(table) {
@@ -189,7 +133,7 @@
     }
 
     // Função para reservar
-    document.getElementById('reservation-form').addEventListener('submit', function(event) {
+    document.getElementById('reserva_mesas').addEventListener('submit', function(event) {
         event.preventDefault();
 
         const date = document.getElementById('date').value;
@@ -213,14 +157,95 @@
         confirmation.style.display = 'block';
         confirmation.innerHTML = `Reserva Confirmada! <br> Mesa ${selectedTable.id} <br> Data: ${date} <br> Hora: ${time} <br> Número de Pessoas: ${guests}`;
 
+// Obtenha a data do formulário
+const dateInput = document.getElementById('date').value;
+
+// Crie um objeto Date com a data fornecida
+const dateObj = new Date(dateInput);
+
+// Extraia o dia, mês e ano
+const day = dateObj.getDate(); // Obtém o dia
+const month = dateObj.getMonth() + 1; // O método getMonth() retorna 0-11, então adicionamos 1
+const year = dateObj.getFullYear(); // Obtém o ano completo (ex: 2025)
+
+// Formate a data no formato dia/mês/ano
+const formattedDate = `${day}/${month}/${year}`;
+
+// Atualize a confirmação
+confirmation.innerHTML = `Reserva Confirmada! <br> Mesa ${selectedTable.id} <br> Data: ${formattedDate} <br> Hora: ${time} <br> Número de Pessoas: ${guests}`;
+
         // Limpa o formulário e re-renderiza as mesas
-        document.getElementById('reservation-form').reset();
+        document.getElementById('reserva_mesas').reset();
         renderTables();
     });
 
     // Chama a função para renderizar as mesas ao carregar a página
     renderTables();
-</script>
 
+    function enviarReserva() {
+    var numerotelefone = "+558591392420";
+    
+    // Obtém os valores do formulário
+    var mesa = document.querySelector('.table.selected'); // Identifica a mesa selecionada visualmente
+    var data = document.getElementById('date').value;
+    var hora = document.getElementById('time').value;
+    var numPessoas = document.getElementById('guests').value;
+
+    // Verifica se uma mesa foi selecionada
+    if (!mesa) {
+        alert("Por favor, selecione uma mesa!");
+        return;
+    }
+
+    // Pega o ID da mesa selecionada
+    var mesaId = mesa.getAttribute('data-id'); // Considerando que você tenha a propriedade 'data-id' para identificar a mesa
+
+    // Codificando os valores para URL corretamente
+    var url = "https://wa.me/" + numerotelefone + "?text=" +
+        "*Mesa:* " + encodeURIComponent(mesaId) + "%0a" +  // Inclui o ID da mesa selecionada
+        "*Data:* " + encodeURIComponent(data) + "%0a" +
+        "*Hora:* " + encodeURIComponent(hora) + "%0a" +
+        "*Número de Pessoas:* " + encodeURIComponent(numPessoas) + "%0a" +
+        "*Esse é a reserva da mesa.*";
+
+    // Redireciona para o WhatsApp diretamente
+    window.location.href = url;
+}
+
+// >>Modo Dark<<
+
+//aqui vou pegar os elementos
+const chk = document.getElementById('chk');
+const table = document.querySelector('table');  // ou algum seletor de tabela específico
+
+
+//Aqui vou adicionar um evento "sempre que o chk mudar" ou uma class dark é criada ou apagada
+chk.addEventListener("change", ()=>{
+    document.body.classList.toggle('dark');
+    table.classList.toggle('dark');
+});
+    document.addEventListener('DOMContentLoaded', ()=> {
+        //Verifica se há uma preferência salva no localStorage
+        const darkModePreference = localStorage.getItem('darkMode') === 'true';
+
+        //Se a preferência for salva como true, aplica o modo escuro
+        if (darkModePreference){
+            document.body.classList.add('dark');
+            document.getElementById('chk').checked = true;
+        }
+
+        //Adiciona um ouvinte de evento para o checkbox
+        const checkbox = document.getElementById('chk');
+        checkbox.addEventListener('change', () =>{
+            if (checkbox.checked){
+                document.body.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            }else{
+                document.body.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            }
+        });
+    });
+</script>
 </body>
 </html>

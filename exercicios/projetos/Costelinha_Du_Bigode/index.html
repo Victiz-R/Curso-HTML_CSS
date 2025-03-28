@@ -20,7 +20,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="pedidos.html">Pedidos</a></li>
             <li><a href="reserva.html">Reserva</a></li>
-            <li><a href="teste.html">Contato</a></li>
+            <li><a href="">Contato</a></li>
         </ul>
     </nav>
     <img class="logo" src="assets/imgs/perfil.png">
@@ -99,6 +99,26 @@
     </div>
 </footer>
     <!--Link JS-->
-<script src="assets/js/js.js"></script>
+    <!-- Link para o JS Externo (Modo Escuro) -->
+    <script src="assets/js/js.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let count = 1;
+            document.getElementById("radio1").checked = true;
+
+            setInterval(function () {
+                nextImage();
+            }, 5000); // Intervalo de 5 segundos para a troca de imagem
+
+            function nextImage() {
+                count++;
+                if (count > 3) { // Se ultrapassar o número de imagens, reinicia
+                    count = 1;
+                }
+
+                document.getElementById("radio" + count).checked = true; // Avança para o próximo slide
+            }
+        });
+    </script>
 </body>
 </html>
